@@ -9,11 +9,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            EstadosTableSeeder::class,
             CidadeSeeder::class,
             RepresentanteSeeder::class,
             ClienteSeeder::class,
             CidadeRepresentanteSeeder::class,
-            EstadosTableSeeder::class,
         ]);
     }
 }

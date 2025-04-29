@@ -12,12 +12,14 @@ class CidadeSeeder extends Seeder
     {
         $faker = Faker::create();
 
+        $estadoAcre = \DB::table('estados')->where('nome', 'Acre')->value('id');
+        $estadoMinas = \DB::table('estados')->where('nome', 'Minas Gerais')->value('id');
+        $estadoRio = \DB::table('estados')->where('nome', 'Rio de Janeiro')->value('id');
+
         $cidades = [
-            ['nome' => 'São Paulo'],
-            ['nome' => 'Rio de Janeiro'],
-            ['nome' => 'Belo Horizonte'],
-            ['nome' => 'Curitiba'],
-            ['nome' => 'Porto Alegre'],
+            ['nome' => 'Rio Branco', 'estado_id' => $estadoAcre],
+            ['nome' => 'Belo Horizonte', 'estado_id' => $estadoMinas],
+            ['nome' => 'Rio de Janeiro', 'estado_id' => $estadoRio],
         ];
 
         foreach ($cidades as $cidade) {
