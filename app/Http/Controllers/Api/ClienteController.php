@@ -13,7 +13,7 @@ class ClienteController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Cliente::with('cidade');
+        $query = Cliente::with('cidade.estado');
 
         // Filtro por nome ou email
         if ($search = $request->query('search')) {

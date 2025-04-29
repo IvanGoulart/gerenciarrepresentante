@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
             RepresentanteSeeder::class,
             ClienteSeeder::class,
             CidadeRepresentanteSeeder::class,
+            EstadosTableSeeder::class,
         ]);
     }
 }

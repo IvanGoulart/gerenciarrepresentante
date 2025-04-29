@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cidade extends Model
 {
-    protected $fillable = ['nome'];
+    protected $fillable = ['nome', 'estado_id'];
 
     public function representantes()
     {
@@ -16,5 +16,10 @@ class Cidade extends Model
     public function clientes()
     {
         return $this->hasMany(Cliente::class);
+    }
+
+    public function estado()
+    {
+        return $this->belongsTo(Estado::class, 'estado_id');
     }
 }

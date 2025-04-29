@@ -11,4 +11,8 @@ Route::get('/clientes', function () {
     return view('cliente.cliente');
 })->name('cliente.create');
 
+Route::get('/cidades', function () {
+    return view('cidade.cidade');
+})->name('cidade.create');
+
 

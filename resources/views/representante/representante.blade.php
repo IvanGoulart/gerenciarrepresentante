@@ -140,7 +140,7 @@
                     document.getElementById('cidade-error-modal').style.display = 'block';
                 } else {
                     document.getElementById('cidade-error-modal').style.display = 'none';
-                    cidades.forEach(cidade => {
+                    cidades.data.forEach(cidade => {
                         const div = document.createElement('div');
                         div.className = 'form-check';
                         div.innerHTML = `

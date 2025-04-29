@@ -23,6 +23,9 @@
                     <li class="nav-item">
                         <a class="nav-link @if(Route::currentRouteName() == 'cliente.create') active @endif" href="{{ route('cliente.create') }}">Gerência de Clientes</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if(Route::currentRouteName() == 'cidade.create') active @endif" href="{{ route('cidade.create') }}">Gerência de Cidades</a>
+                    </li>
                 </ul>
             </div>
         </div>

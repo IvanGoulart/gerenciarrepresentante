@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ClienteController;
 use App\Http\Controllers\Api\CidadeController;
 use App\Http\Controllers\Api\RepresentanteController;
+use App\Http\Controllers\Api\EstadoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,5 +48,6 @@ Route::delete('/representantes/{id}', [RepresentanteController::class, 'destroy'
 // Rotas específicas para consultas solicitadas
 Route::get('/clientes/{id}/representantes', [ClienteController::class, 'representantes']); // Representantes de um cliente
 Route::get('/cidades/{id}/representantes', [CidadeController::class, 'representantes']); // Representantes de uma cidade
-
+//estados
+Route::get('/estados', [EstadoController::class, 'index']);
 ?>

@@ -11,9 +11,17 @@ class CidadeController extends Controller
     /**
      * Listar todas as cidades
      */
-    public function index()
+    public function index(Request $request)
     {
-        $cidades = Cidade::all();
+        $search = $request->query('search');
+        $query = Cidade::with('estado');
+
+        if ($search) {
+            $query->where('nome', 'like', "%{$search}%");
+        }
+
+        $cidades = $query->paginate(10);
+
         return response()->json($cidades, 200);
     }
 
@@ -33,9 +41,12 @@ class CidadeController extends Controller
     {
         $request->validate([
             'nome' => 'required|string|max:255|unique:cidades,nome',
+            'estado_id' => 'required|exists:estados,id',
         ]);
 
-        $cidade = Cidade::create($request->only(['nome']));
+      $cidade = Cidade::create($request->only(['nome', 'estado_id']));
+
+
         return response()->json($cidade, 201);
     }
 
@@ -44,13 +55,14 @@ class CidadeController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $cidade = Cidade::findOrFail($id);
 
         $request->validate([
-            'nome' => 'required|string|max:255|unique:cidades,nome,' . $id,
+            'nome' => 'required|string|max:255,' . $id,
         ]);
 
-        $cidade->update($request->only(['nome']));
+        $cidade->update($request->only(['nome', 'estado_id']));
         return response()->json($cidade, 200);
     }
 
